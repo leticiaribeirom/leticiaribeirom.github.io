@@ -108,35 +108,35 @@ ul {
 }
 
 .branding-palette .column.column--1 {
-  background: #69d2e7;
+  background: #3d3e42;
 }
 
 .branding-palette .column.column--2 {
-  background: #a7dbd8;
+  background: #4a4e51;
 }
 
 .branding-palette .column.column--3 {
-  background: #e0e4cc;
+  background: #9099a0;
 }
 
 .branding-palette .column.column--4 {
-  background: #f38630;
+  background: #66cc99;
 }
 
 .branding-palette .column.column--5 {
-  background: #fa6900;
+  background: #66cc99;
 }
 
 .branding-palette .column.column--6 {
-  background: #e0e4cc;
+  background: #9099a0;
 }
 
 .branding-palette .column.column--7 {
-  background: #a7dbd8;
+  background: #4a4e51;
 }
 
 .branding-palette .column.column--8 {
-  background: #69d2e7;
+  background: #3d3e42;
 }
 /*
  * Hero
@@ -159,9 +159,9 @@ ul {
   height: 47px;
   margin: 100px auto;
   line-height: 47px;
-  border: 1px solid #69d2e7;
+  border: 1px solid #66cc99;
   text-transform: uppercase;
-  color: #69d2e7;
+  color: #66cc99;
   display: block;
   cursor: pointer;
   font-size: 14px;
@@ -173,8 +173,8 @@ ul {
 
 .button:hover {
   color: white;
-  background: #69d2e7;
-  border: 1px solid #69d2e7;
+  background: #66cc99;
+  border: 1px solid #66cc99;
 }
 
 .arrow-down {
@@ -246,7 +246,7 @@ ul {
 }
 
 .menu-logo {
-  color: #69d2e7;
+  color: #66cc99;
   font-weight: 700;
   font-size: 24px;
   width: 300px;
@@ -280,11 +280,11 @@ ul {
 }
 
 .menu-content li.active a {
-  color: #69d2e7;
+  color: #66cc99;
 }
 
 .menu-content li a:hover {
-  color: #69d2e7;
+  color: #66cc99;
 }
 
 /*
