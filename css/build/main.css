@@ -228,9 +228,9 @@ ul {
   position: relative;
 }
 
- /*
-  * Menu
-  */
+/*
+* Menu
+*/
 
 .menu {
   width: 100%;
@@ -594,8 +594,8 @@ nav li:last-child a:after {
   opacity: 0;
   -webkit-transition: all 0.6s ease-in;
   -moz-transition: all 0.6s ease-in;
-	-ms-transition: all 0.6s ease-in;
-	-o-transition: all 0.6s ease-in;
+  -ms-transition: all 0.6s ease-in;
+  -o-transition: all 0.6s ease-in;
   transition: all 0.6s ease-in;
 }
 
@@ -614,7 +614,7 @@ nav li:last-child a:after {
 
 p.description {
   font-size: 12px;
-  width: 300px;
+  margin: 10px;
   margin-top: 20px;
   text-align: center;
   line-height: 20px;
