@@ -585,6 +585,12 @@ nav li:last-child a:after {
   position: relative;
 }
 
+.logo-igor {
+  width: 215px;
+  margin-top: 10px;
+  margin-left: 40px;
+  margin-bottom: 60px;
+}
 .text {
   position: absolute;
   width: 285px;
