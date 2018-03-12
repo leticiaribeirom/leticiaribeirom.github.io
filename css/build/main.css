@@ -620,6 +620,20 @@ img.bsb-pet {
   margin-bottom: 120px;
 }
 
+img.frogger{
+  width: 220px;
+  margin-top: 10px;
+  margin-left: 32.5px;
+  margin-bottom: 30px;
+}
+
+img.reserva-salas {
+  width: 235px;
+  margin-top: 10px;
+  margin-left: 25px;
+  margin-bottom: 150px;
+}
+
 .text {
   position: absolute;
   width: 285px;
