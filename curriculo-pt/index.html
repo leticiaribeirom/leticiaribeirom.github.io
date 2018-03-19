@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<!--
+This is an HTML document. It contains information about how elements in the website
+are arranged. In other words, it describes the layout of a website.
+
+I can't wait to see the resumes you put together!
+
+Cameron Pittman, Udacity Course Developer
+-->
+
+<!--
+The <head> of a website generally links to important resources the page will
+need to load. You'll see a lot of <link>s to CSS files for styles and
+<scripts> for JavaScript files to build interactions.
+-->
+<html>
+
+<head>
+  <!-- This tells the browser how to read the document. -->
+  <meta charset="utf-8">
+
+  <!-- Tells the browser what the title of this page should be. -->
+  <title>Resume</title>
+
+  <!-- Load the page styles. -->
+
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh3qZV_EkF4Eh7AkkMvwbwI3wZjPZdjPk&v=3"></script>
+  <!-- <script src="https://cdn.mapkit.io/v1/infobox.js"></script> -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+  <!-- <link href="https://cdn.mapkit.io/v1/infobox.css" rel="stylesheet"> -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+  <div id="main">
+
+    <div id="header" class="center-content clear-fix">
+      <ul id="topContacts" class="flex-box"></ul>
+    </div>
+    <div style="clear: both;"></div>
+    <div id="workExperience" class="gray">
+      <h2>Experiência Profissional</h2>
+    </div>
+    <div id="projects">
+      <h2>Projetos</h2>
+    </div>
+    <div id="education" class="gray">
+      <h2>Formação Acadêmica</h2>
+    </div>
+    <!-- <div id="mapDiv">
+      <h2>Where I've Lived and Worked</h2>
+    </div> -->
+    <div id="lets-connect" class="dark-gray">
+      <h2 class="green center-text">Contato</h2>
+      <ul id="footerContacts" class="flex-box">
+      </ul>
+    </div>
+  </div>
+
+  <!-- "HTML is loaded by the browser in the order it appears in the file. If the JavaScript is loaded first and it is supposed to affect the HTML below it, it might not work, as the JavaScript would be loaded before the HTML it is supposed to work on. Therefore, putting JavaScript near the bottom of the HTML page is often the best strategy."
+  https://developer.mozilla.org/en-US/Learn/Getting_started_with_the_web/JavaScript_basics -->
+
+  <!-- "Javascript assets, by default, tend to block any other parallel downloads from occurring. So, you can imagine if you have plenty of <script> tags in the head, calling on multiple external scripts will block the HTML from loading, thus greeting the user with a blank white screen, because no other content on your page will load until the JS files have completely loaded."
+    http://stackoverflow.com/questions/4396849/does-the-script-tag-position-in-html-affects-performance-of-the-webpage -->
+
+  <!--
+  jQuery is a common JavaScript library for reading and making changes to the
+  Document Object Model (DOM). The DOM is a tree that contains information
+  about what is actually visible on a website.
+
+  While HTML is a static document, the browser converts HTML to the
+  DOM and the DOM can change. In fact, JavaScript's power comes from
+  its ability to manipulate the DOM, which is essentially a JavaScript
+  object. When JavaScript makes something interesting happen on a
+  website, it's likely the action happened because JavaScript changed
+  the DOM. jQuery is fast and easy to use, but it doesn't do anything
+  you can't accomplish with vanilla (regular) JavaScript.
+  -->
+  <script src="js/jQuery.js"></script>
+
+  <!-- More on helper.js in the class -->
+  <script src="js/helper.js"></script>
+
+  <!--
+  The next line tells the browser where to download the JavaScript file you'll be
+  writing. In resumeBuilder.js, you'll be writing code that builds the resume
+  dynamically when this website, index.html, is opened.
+  -->
+  <script src="js/resumeBuilder.js"></script>
+
+
+  <!--
+  These scripts are written in JavaScript. You'll be breaking them down as part of
+  a quiz. Essentially, the next few lines are checking to see if you have not
+  changed each section of the resume. If you have not made any changes to a section
+  of the resume, then that part of the resume does not show up. More on this in the
+  course.
+  -->
+
+
+
+  <script>
+    if (document.getElementsByClassName('flex-item').length === 0) {
+      document.getElementById('topContacts').style.display = 'none';
+    }
+    if (document.getElementsByTagName('h1').length === 0) {
+      document.getElementById('header').style.display = 'none';
+    }
+    if (document.getElementsByClassName('work-entry').length === 0) {
+      document.getElementById('workExperience').style.display =
+        'none';
+    }
+    if (document.getElementsByClassName('project-entry').length === 0) {
+      document.getElementById('projects').style.display = 'none';
+    }
+    if (document.getElementsByClassName('education-entry').length ===
+      0) {
+      document.getElementById('education').style.display = 'none';
+    }
+    if (document.getElementsByClassName('flex-item').length === 0) {
+      document.getElementById('lets-connect').style.display = 'none';
+    }
+    if (document.getElementById('map') === null) {
+      document.getElementById('mapDiv').style.display = 'none';
+    }
+    google.maps.event.addDomListener(window, 'load', init);
+    var map, markersArray = [];
+
+    function bindInfoWindow(marker, map, location) {
+      google.maps.event.addListener(marker, 'click', function() {
+        function close(location) {
+          location.ib.close();
+          location.infoWindowVisible = false;
+          location.ib = null;
+        }
+
+        if (location.infoWindowVisible === true) {
+          close(location);
+        }
+        else {
+          markersArray.forEach(function(loc, index) {
+            if (loc.ib && loc.ib !== null) {
+              close(loc);
+            }
+          });
+
+          var boxText = document.createElement('div');
+          boxText.style.cssText = 'background: #fff;';
+          boxText.classList.add('md-whiteframe-2dp');
+
+          function buildPieces(location, el, part, icon) {
+            if (location[part] === '') {
+              return '';
+            }
+            else if (location.iw[part]) {
+              switch (el) {
+                case 'photo':
+                  if (location.photo) {
+                    return
+                      '<div class="iw-photo" style="background-image: url(' +
+                      location.photo + ');"></div>';
+                  }
+                  else {
+                    return '';
+                  }
+                  break;
+                case 'iw-toolbar':
+                  return
+                    '<div class="iw-toolbar"><h3 class="md-subhead">' +
+                    location.title + '</h3></div>';
+                  break;
+                case 'div':
+                  switch (part) {
+                    case 'email':
+                      return
+                        '<div class="iw-details"><i class="material-icons" style="color:#4285f4;"><img src="//cdn.mapkit.io/v1/icons/' +
+                        icon +
+                        '.svg"/></i><span><a href="mailto:' +
+                        location.email + '" target="_blank">' +
+                        location.email + '</a></span></div>';
+                      break;
+                    case 'web':
+                      return
+                        '<div class="iw-details"><i class="material-icons" style="color:#4285f4;"><img src="//cdn.mapkit.io/v1/icons/' +
+                        icon + '.svg"/></i><span><a href="' +
+                        location.web + '" target="_blank">' +
+                        location.web_formatted +
+                        '</a></span></div>';
+                      break;
+                    case 'desc':
+                      return
+                        '<label class="iw-desc" for="cb_details"><input type="checkbox" id="cb_details"/><h3 class="iw-x-details">Details</h3><i class="material-icons toggle-open-details"><img src="//cdn.mapkit.io/v1/icons/' +
+                        icon +
+                        '.svg"/></i><p class="iw-x-details">' +
+                        location.desc + '</p></label>';
+                      break;
+                    default:
+                      return
+                        '<div class="iw-details"><i class="material-icons"><img src="//cdn.mapkit.io/v1/icons/' +
+                        icon + '.svg"/></i><span>' + location[
+                          part] + '</span></div>';
+                      break;
+                  }
+                  break;
+                case 'open_hours':
+                  var items = '';
+                  if (location.open_hours.length > 0) {
+                    for (var i = 0; i < location.open_hours.length; ++
+                      i) {
+                      if (i !== 0) {
+                        items += '<li><strong>' + location.open_hours[
+                            i].day + '</strong><strong>' +
+                          location.open_hours[i].hours +
+                          '</strong></li>';
+                      }
+                      var first =
+                        '<li><label for="cb_hours"><input type="checkbox" id="cb_hours"/><strong>' +
+                        location.open_hours[0].day +
+                        '</strong><strong>' + location.open_hours[
+                          0].hours +
+                        '</strong><i class="material-icons toggle-open-hours"><img src="//cdn.mapkit.io/v1/icons/keyboard_arrow_down.svg"/></i><ul>' +
+                        items + '</ul></label></li>';
+                    }
+                    return
+                      '<div class="iw-list"><i class="material-icons first-material-icons" style="color:#4285f4;"><img src="//cdn.mapkit.io/v1/icons/' +
+                      icon + '.svg"/></i><ul>' + first +
+                      '</ul></div>';
+                  }
+                  else {
+                    return '';
+                  }
+                  break;
+              }
+            }
+            else {
+              return '';
+            }
+          }
+
+          boxText.innerHTML =
+            buildPieces(location, 'photo', 'photo', '') +
+            buildPieces(location, 'iw-toolbar', 'title', '') +
+            buildPieces(location, 'div', 'address',
+              'location_on') +
+            buildPieces(location, 'div', 'web', 'public') +
+            buildPieces(location, 'div', 'email', 'email') +
+            buildPieces(location, 'div', 'tel', 'phone') +
+            buildPieces(location, 'div', 'int_tel', 'phone') +
+            buildPieces(location, 'open_hours', 'open_hours',
+              'access_time') +
+            buildPieces(location, 'div', 'desc',
+              'keyboard_arrow_down');
+
+          var myOptions = {
+            alignBottom: true,
+            content: boxText,
+            disableAutoPan: true,
+            maxWidth: 0,
+            pixelOffset: new google.maps.Size(-140, -40),
+            zIndex: null,
+            boxStyle: {
+              opacity: 1,
+              width: '280px'
+            },
+            closeBoxMargin: '0px 0px 0px 0px',
+            infoBoxClearance: new google.maps.Size(1, 1),
+            isHidden: false,
+            pane: 'floatPane',
+            enableEventPropagation: false
+          };
+
+          location.ib = new InfoBox(myOptions);
+          location.ib.open(map, marker);
+          location.infoWindowVisible = true;
+        }
+      });
+    }
+
+    function init() {
+      var mapOptions = {
+        center: new google.maps.LatLng(-11.88885259736949, -
+          54.12231550000001),
+        zoom: 3,
+        gestureHandling: 'auto',
+        fullscreenControl: false,
+        zoomControl: true,
+        disableDoubleClickZoom: true,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+        },
+        scaleControl: true,
+        scrollwheel: true,
+        streetViewControl: true,
+        draggable: true,
+        clickableIcons: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        styles: [{
+          "featureType": "water",
+          "elementType": "geometry",
+          "stylers": [{
+            "color": "#3f3f43"
+          }]
+        }, {
+          "featureType": "landscape",
+          "elementType": "geometry",
+          "stylers": [{
+            "color": "#8bcc99"
+          }]
+        }, {
+          "featureType": "poi",
+          "stylers": [{
+            "color": "#8bcc99"
+          }, {
+            "lightness": -7
+          }]
+        }, {
+          "featureType": "road.highway",
+          "elementType": "geometry",
+          "stylers": [{
+            "color": "#8bcc99"
+          }, {
+            "lightness": -28
+          }]
+        }, {
+          "featureType": "road.arterial",
+          "elementType": "geometry",
+          "stylers": [{
+            "color": "#8bcc99"
+          }, {
+            "visibility": "on"
+          }, {
+            "lightness": -15
+          }]
+        }, {
+          "featureType": "road.local",
+          "elementType": "geometry",
+          "stylers": [{
+            "color": "#8bcc99"
+          }, {
+            "lightness": -18
+          }]
+        }, {
+          "elementType": "labels.text.fill",
+          "stylers": [{
+            "color": "#ffffff"
+          }]
+        }, {
+          "elementType": "labels.text.stroke",
+          "stylers": [{
+            "visibility": "off"
+          }]
+        }, {
+          "featureType": "transit",
+          "elementType": "geometry",
+          "stylers": [{
+            "color": "#8bcc99"
+          }, {
+            "lightness": -34
+          }]
+        }, {
+          "featureType": "administrative",
+          "elementType": "geometry",
+          "stylers": [{
+            "visibility": "on"
+          }, {
+            "color": "#333739"
+          }, {
+            "weight": 0.8
+          }]
+        }, {
+          "featureType": "poi.park",
+          "stylers": [{
+            "color": "#2ecc71"
+          }]
+        }, {
+          "featureType": "road",
+          "elementType": "geometry.stroke",
+          "stylers": [{
+            "color": "#333739"
+          }, {
+            "weight": 0.3
+          }, {
+            "lightness": 10
+          }]
+        }]
+      }
+      var mapElement = document.getElementById('map');
+      var map = new google.maps.Map(mapElement, mapOptions);
+      var locations = [
+        {
+          "title": "Brasília",
+          "address": "Brasília, DF, Brasil",
+          "desc": "",
+          "tel": "",
+          "int_tel": "",
+          "email": "",
+          "web": "",
+          "web_formatted": "",
+          "open": "",
+          "time": "",
+          "lat": -15.7942287,
+          "lng": -47.882165799999996,
+          "vicinity": "Brasília",
+          "open_hours": "",
+          "marker": {
+            "url": "https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi_hdpi.png",
+            "scaledSize": {
+              "width": 25,
+              "height": 42,
+              "j": "px",
+              "f": "px"
+            },
+            "origin": {
+              "x": 0,
+              "y": 0
+            },
+            "anchor": {
+              "x": 12,
+              "y": 42
+            }
+          },
+          "iw": {
+            "address": true,
+            "desc": true,
+            "email": true,
+            "enable": true,
+            "int_tel": true,
+            "open": true,
+            "open_hours": true,
+            "photo": true,
+            "tel": true,
+            "title": true,
+            "web": true
+          }
+        }
+        ];
+      for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+          icon: locations[i].marker,
+          position: new google.maps.LatLng(locations[i].lat,
+            locations[i].lng),
+          map: map,
+          title: locations[i].title,
+          address: locations[i].address,
+          desc: locations[i].desc,
+          tel: locations[i].tel,
+          int_tel: locations[i].int_tel,
+          vicinity: locations[i].vicinity,
+          open: locations[i].open,
+          open_hours: locations[i].open_hours,
+          photo: locations[i].photo,
+          time: locations[i].time,
+          email: locations[i].email,
+          web: locations[i].web,
+          iw: locations[i].iw
+        });
+        markersArray.push(marker);
+
+        if (locations[i].iw.enable === true) {
+          bindInfoWindow(marker, map, locations[i]);
+        }
+      }
+    }
+
+  </script>
+</body>
+
+</html>
