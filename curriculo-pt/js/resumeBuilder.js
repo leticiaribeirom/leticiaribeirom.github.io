@@ -77,7 +77,7 @@ var projects = {
     "dates": "2017",
     "description": "Site desenvolvido enquanto freelancer apresentando mais de 10 telas diferentes, alguns modais e animações. Versão live disponível em https://leticiaribeirom.github.io/liber-index.html",
     "images": [
-      "images/logo.png"
+      "images/logo-letras.png"
     ]
   },
   {
