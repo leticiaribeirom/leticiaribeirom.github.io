@@ -347,26 +347,14 @@ ul li {
 ========================================================================== */
 
 .banner {
-  background: #38434c url(../images/banner2.png);
+  background: linear-gradient(rgba(56, 67, 76, 0.7), rgba(56, 67, 76, 0.7)), url(../images/icons/banner.png);
   background-position: center top;
   background-repeat: no-repeat;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover;
-  min-height: 750px;
-}
-
-.banner-overlay:before {
-  position: absolute;
-  content: " ";
-  top: -60px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  z-index: 0;
-  background-color: rgba(56, 67, 76, 0.7);
+  min-height: 1080px;
 }
 
 .banner-text {
@@ -384,7 +372,7 @@ ul li {
   color: #fff;
   font-size: 22px;
   font-weight: 300;
-  line-height: 1.5;
+  line-height: 2;
   margin-bottom: 80px;
 }
 
