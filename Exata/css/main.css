@@ -417,7 +417,7 @@ ul li {
   line-height: 28px;
 }
 
-.text__button:link {
+.text__button {
   display: inline-block;
   padding: 13px 40px;
   margin-top: 70px;
@@ -434,12 +434,6 @@ ul li {
   color: #fff;
   text-decoration: none;
   background-color: #136176;
-}
-
-.text__button:visited {
-  color: #fff;
-  text-decoration: none;
-  border: 1px solid #136176;
 }
 
 .text__button:focus {
