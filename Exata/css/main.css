@@ -485,6 +485,11 @@ ul li {
   color: #a1a1a1;
 }
 
+.clients-subtitle {
+  color: #a1a1a1;
+  margin-top: 50px;
+}
+
 .clients__header:after {
   content: '';
   display: table;

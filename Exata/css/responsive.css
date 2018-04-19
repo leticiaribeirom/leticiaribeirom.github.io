@@ -130,6 +130,9 @@
   .flex-control-nav {
     bottom: 20px;
   }
+  .clients__controls{
+		margin-top: -100px;
+  }
 }
 /* Ipad */
 @media screen and (max-width: 768px) {
@@ -171,9 +174,6 @@
     padding-top: 35%;
   }
 
-  /* #clientes {
-    height: 400px;
-  } */
   .clients__controls{
 		margin-top: -100px;
   }
