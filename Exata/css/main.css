@@ -556,110 +556,10 @@ ul li {
   margin-top: -1px;
 }
 
-/*contact *******************************/
-
-.contact:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-.contact__inf {
-  margin-top: 150px;
-  margin-bottom: 50px;
-  font-size: 16px;
-  color: rgb(51, 51, 51);
-}
-
-.contact__text {
-  margin-bottom: 55px;
-  line-height: 28px;
-}
-
-.contact__email,
-.contact__email:hover,
-.contact__email:focus {
-  color: #136176;
-  text-decoration: none;
-}
-
-.contact__address {
-  margin-bottom: 55px;
-  font-style: normal;
-  line-height: 28px;
-}
-
-.contact__tel,
-.contact__tel:hover,
-.contact__tel:focus {
-  color: rgb(51, 51, 51);
-  text-decoration: none;
-}
-
-.social {
-  margin-bottom: 80px;
-}
-
-.social__link-and-icon {
-  display: inline-block;
-  margin-right: 20px;
-  font-weight: 600;
-}
-
-.social__link-and-icon:last-child {
-  margin-right: 0;
-}
-
-.social__link-and-icon:hover .social__link_underline {
-  width: 100%;
-}
-
-.social__link-and-icon:hover .icon {
-  color: #136176;
-}
-
-.social__link-and-icon:hover .social__link {
-  color: #136176;
-}
-
-.social__link {
-  position: relative;
-  -webkit-transition: border-bottom .3s, color .3s;
-  -o-transition: border-bottom .3s, color .3s;
-  transition: border-bottom .3s, color .3s;
-}
-
-.icon {
-  -webkit-transition: color .3s;
-  -o-transition: color .3s;
-  transition: color .3s;
-}
-
-.social__link,
-.social__link:hover,
-.social__link:focus {
-  margin-left: 5px;
-  color: rgb(51, 51, 51);
-  text-decoration: none;
-}
-
-.social__link_underline {
-  width: 0%;
-  display: inline-block;
-  border-bottom: 2px solid #136176;
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  -webkit-transition: width .3s;
-  -o-transition: width .3s;
-  transition: width .3s;
-}
-
 /* Contact Form */
 
 #wrapper {
   float: left;
-  margin-left: -20px;
 }
 
 .form .text-input,
@@ -801,17 +701,6 @@ ul li {
   float: left;
 }
 
-@media screen and (min-width: 40em) {
-  .form .field.half {
-    width: calc(50% - 2em);
-    margin-right: 2em;
-  }
-  .form .field.half+.half {
-    margin-left: 2em;
-    margin-right: 0;
-  }
-}
-
 .form .field:last-child {
   float: right;
   width: auto;
@@ -828,10 +717,10 @@ svg path {
 /* Client logos *******************************/
 
 .clients-logos {
-  padding: 50px 0;
-  background-color: #136176;
+  padding: 75px 0;
+  background-color: #efefef;
   position: absolute;
-  top: 45%;
+  top: 42%;
   left: 0;
   right: 0;
   margin-top: -230px;
@@ -870,57 +759,57 @@ svg path {
 	$Footer
 ========================================================================== */
 
-.footer {
-  text-align: center;
+/*map *******************************/
+
+.map{
+	height: 1000px;
+  float: right;
+  padding-right: 0;
 }
 
-.footer-top {
-  background-color: #136176;
-  padding-top: 50px;
+.map:after{
+	content: '';
+	display: table;
+	clear: both;
 }
 
-.footer-bottom {
-  background-color: #136176;
-  padding: 20px 0;
+/*contact *******************************/
+
+.contact-title {
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+.contact:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 
-.footer .footer-col {
-  margin-bottom: 80px;
+.contact__inf {
+  margin-top: 300px;
+  margin-bottom: -20px;
+  font-size: 16px;
+  color: rgb(51, 51, 51);
 }
 
-.footer h5 {
-  color: #fff;
+.contact__text {
+  margin-bottom: 55px;
+  line-height: 28px;
 }
 
-.footer h5 {
-  margin-bottom: 20px;
+.contact__address {
+  margin-bottom: 45px;
+  font-style: normal;
+  line-height: 28px;
 }
 
-.footer p {
-  color: rgba(255, 255, 255, 0.5);
+.contact__tel,
+.contact__tel:hover,
+.contact__tel:focus {
+  color: rgb(51, 51, 51);
+  text-decoration: none;
 }
 
-.footer a {
-  color: #fff;
-}
-
-.footer a:hover {
-  color: #136176;
-}
-
-.footer .footer-share {
-  margin-top: 0;
-}
-
-.footer .footer-share li {
-  display: inline-block;
-  float: none;
-}
-
-.footer .footer-share a {
-  border-width: 2px;
-  color: #fff;
-}
 
 /* ==========================================================================
 	$Utilities
@@ -928,12 +817,4 @@ svg path {
 
 .animated {
   visibility: visible;
-}
-
-.margin-bottom-30 {
-  margin-bottom: 30%;
-}
-
-.margin-bottom-40 {
-  margin-bottom: 40%;
 }

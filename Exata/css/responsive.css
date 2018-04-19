@@ -11,6 +11,16 @@
   .clients__controls{
 		margin-top: -20px;
   }
+  #wrapper {
+    width: 800px;
+    margin-left: -35px;
+  }
+  .contact__address {
+    width: 650px;
+  }
+  .contact__inf {
+    margin-left: -300px;
+  }
 }
 
 /* Ipad pro */
@@ -27,6 +37,16 @@
   }
   .banner {
     min-height: 1024px;
+  }
+  #wrapper {
+    width: 550px;
+    margin-left: -35px;
+  }
+  .contact__address {
+    width: 550px;
+  }
+  .contact__inf {
+    margin-left: -60px;
   }
 }
 
@@ -209,5 +229,16 @@
   .banner {
     min-height: 834px;
     background: linear-gradient(rgba(56, 67, 76, 0.7), rgba(56, 67, 76, 0.7)), url(../images/icons/banner@834.png);
+  }
+}
+
+@media screen and (min-width: 40em) {
+  .form .field.half {
+    width: calc(50% - 2em);
+    margin-right: 2em;
+  }
+  .form .field.half+.half {
+    margin-left: 2em;
+    margin-right: 0;
   }
 }
