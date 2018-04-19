@@ -13,7 +13,7 @@
   }
   #wrapper {
     width: 800px;
-    margin-left: -35px;
+
   }
   .contact__address {
     width: 650px;
@@ -157,6 +157,13 @@
   .clients__controls{
 		margin-top: -100px;
   }
+  .map {
+    display: none;
+  }
+  .contact__inf {
+    margin-top: 100px;
+    width: 750px;
+  }
 }
 
 @media screen and (max-width: 640px) {
@@ -175,7 +182,7 @@
     margin-top: -80px;
   }
 	.map{
-		height: 400px;
+		display:none;
   }
   
   .clients-logos {
@@ -184,7 +191,7 @@
 	}
 
 }
-
+/* Iphone */
 @media screen and (max-width: 480px) {
   .banner-text {
     padding-top: 55%;
@@ -198,6 +205,10 @@
   .banner {
   min-height: 736px;
   background: linear-gradient(rgba(56, 67, 76, 0.7), rgba(56, 67, 76, 0.7)), url(../images/icons/banner@i.png);
+}
+.contact__inf {
+  width: 390px;
+  margin-left: 10px;
 }
 
 }
@@ -214,6 +225,10 @@
   .banner {
     min-height: 568px;
     background: linear-gradient(rgba(56, 67, 76, 0.7), rgba(56, 67, 76, 0.7)), url(../images/icons/banner@se.png);
+  }
+
+  .contact__inf {
+    width: 300px;
   }
 }
 

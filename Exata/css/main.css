@@ -106,7 +106,7 @@ ul li {
 }
 
 .section {
-  padding: 100px 0;
+  padding: 100px 15px;
 }
 
 .no-padding {
@@ -560,6 +560,7 @@ ul li {
 
 #wrapper {
   float: left;
+  margin-left: -35px;
 }
 
 .form .text-input,
