@@ -1,0 +1,26 @@
+html, body, 
+.container,
+.fpscroller,
+.fpscroller section { 
+	height: 1900px; 
+}
+
+.fpscroller section {
+	position: relative;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	/* background-attachment: fixed; */
+}
+
+#section1 {
+	background-image: url(../images/credenciamento-page-001.jpg);
+}
+
+#section2 {
+	background-image: url(../images/credenciamento-page-002.jpg);
+}
+
+#section3 {
+	background-image: url(../images/credenciamento-page-003.jpg);
+}

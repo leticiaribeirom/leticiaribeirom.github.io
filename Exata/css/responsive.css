@@ -8,18 +8,20 @@
   .banner-text p {
     font-size: 32px;
   }
-  .clients__controls{
-		margin-top: -20px;
+  .clients__controls {
+    margin-top: -20px;
   }
   #wrapper {
     width: 800px;
-
   }
   .contact__address {
     width: 650px;
   }
   .contact__inf {
-    margin-left: -300px;
+    margin-left: -100px;
+  }
+  .container {
+    width: 1520px;
   }
 }
 
@@ -63,8 +65,8 @@
   .banner-text p {
     font-size: 20px;
   }
-  .clients__controls{
-		margin-top: -30px;
+  .clients__controls {
+    margin-top: -30px;
   }
 }
 
@@ -75,8 +77,8 @@
   .banner-text {
     padding-top: 20%;
   }
-  .clients__controls{
-		margin-top: -100px;
+  .clients__controls {
+    margin-top: -100px;
   }
 }
 
@@ -130,11 +132,13 @@
   .flex-control-nav {
     bottom: 20px;
   }
-  .clients__controls{
-		margin-top: -100px;
+  .clients__controls {
+    margin-top: -100px;
   }
 }
+
 /* Ipad */
+
 @media screen and (max-width: 768px) {
   .banner-text {
     padding-top: 45%;
@@ -157,8 +161,8 @@
   .footer .footer-col {
     margin-bottom: 50px;
   }
-  .clients__controls{
-		margin-top: -100px;
+  .clients__controls {
+    margin-top: -100px;
   }
   .map {
     display: none;
@@ -173,25 +177,24 @@
   .banner-text {
     padding-top: 35%;
   }
-
-  .clients__controls{
-		margin-top: -100px;
+  .clients__controls {
+    margin-top: -100px;
   }
-
   #contato {
     margin-top: -80px;
   }
-	.map{
-		display:none;
+  .map {
+    display: none;
   }
-  
   .clients-logos {
-		left: 0; right: 0;
+    left: 0;
+    right: 0;
     margin-top: -350px;
-	}
-
+  }
 }
+
 /* Iphone */
+
 @media screen and (max-width: 480px) {
   .banner-text {
     padding-top: 55%;
@@ -203,19 +206,25 @@
     font-size: 16px;
   }
   .banner {
-  min-height: 736px;
-  background: linear-gradient(rgba(56, 67, 76, 0.7), rgba(56, 67, 76, 0.7)), url(../images/icons/banner@i.png);
-}
-.contact__inf {
-  width: 390px;
-  margin-left: 10px;
-}
-
+    min-height: 736px;
+    background: linear-gradient(rgba(56, 67, 76, 0.7), rgba(56, 67, 76, 0.7)), url(../images/icons/banner@i.png);
+  }
+  .contact__inf {
+    width: 390px;
+    margin-left: 10px;
+  }
+  .clients-logos {
+    top: 50%;
+    padding: 30px 0;
+  }
+  h3 {
+    font-size: 20px;
+  }
 }
 
 /* Iphone SE */
 
-@media screen and (max-width: 320px) and (max-height: 569px){
+@media screen and (max-width: 320px) and (max-height: 569px) {
   .banner-text {
     padding-top: 50%;
   }
@@ -226,7 +235,6 @@
     min-height: 568px;
     background: linear-gradient(rgba(56, 67, 76, 0.7), rgba(56, 67, 76, 0.7)), url(../images/icons/banner@se.png);
   }
-
   .contact__inf {
     width: 300px;
   }
