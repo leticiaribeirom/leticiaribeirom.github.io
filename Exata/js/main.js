@@ -114,5 +114,8 @@ $(document).ready(function () {
 			owl2.trigger('prev.owl.carousel', [300]);
 		}
 	});
+	$('form.form').submit(function(e){
+		e.preventDefault();
+	})
 
 });
