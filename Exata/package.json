@@ -1,12 +1,12 @@
 {
-  "name": "Framework2",
+  "name": "ExataProjetos",
   "version": "0.0.1",
-  "description": "My framework 2nd edition",
+  "description": "Website of Exata Projetos",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Kamal Chaneman",
+  "author": "Letícia Ribeiro",
   "license": "ISC",
   "devDependencies": {
     "grunt": "^0.4.5",

@@ -1,10 +1,10 @@
 {
-  "name": "Framework2",
+  "name": "Exata Projetos",
   "version": "0.0.1",
   "authors": [
-    "kamalcha <mail@kamalchaneman.com>"
+    "Letícia Ribeiro letiiribeiro@gmail.com"
   ],
-  "description": "My framework 2nd edition",
+  "description": "Website of Exata Projetos",
   "license": "MIT",
   "private": true,
   "ignore": [
